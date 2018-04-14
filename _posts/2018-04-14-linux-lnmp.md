@@ -65,7 +65,8 @@ tags: Linux CentOS LNMP Nginx PHP7
 	 nameserver 8.8.8.8
 	 nameserver 114.114.114.114
 	 
-	```   
+	```  
+	   
 	**注意：**IP地址、DNS，请根据自己的实际环境修改   
 	 
 4. 用 yum 方式安装编译工具及 LNMMP 环境所需的依赖包  
@@ -99,8 +100,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	t1lib-5.1.2.tar.gz　 mcrypt-2.6.8.tar.gz　　pecl-memcache-php7.zip  
 	mhash-0.9.9.9.tar.gz　libxml2-2.6.30.tar.gz　 libmcrypt-2.5.8.tar.gz  
 	openssl-1.0.2j.tar.gz　memcached-1.4.31.tar.gz  
-	  
-	  
+	    
 	**下载地址：**  
 	  
 6. 将源码包用 **WinSPC** 上传至指定目录，并解压  
@@ -592,6 +592,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	 netstat -tunpl | grep :80 # 查看 Nginx 端口 
 	 
 	```  
+	  
 	3.6) 测试 PHP 
 	 
 	```bash
