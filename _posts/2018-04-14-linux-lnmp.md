@@ -193,10 +193,10 @@ tags: Linux CentOS LNMP Nginx PHP7
 	
 	 make && make install
 	
-	```  
+	```   
+	 
 	 **注意：**openssl 、 zlib 、 pcre 扩展模块指向源码包的路径  
-	  
-	  
+	   
 	1.4) 编辑 nginx 配置文件 nginx.conf  
 	  
 	```bash  
@@ -255,7 +255,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	```  
 	
 	在浏览器中输入 http://192.168.1.128 成功如下图：  
-	![Nginx success](http://d.pr/i/10UGP+)   
+	![Nginx success]()   
 	 
 	1.6) 设置 Nginx 开机启动  
 	  
@@ -604,7 +604,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	```   
 	  
 	在浏览器中输入 http://192.168.1.128/phpinfo.php 成功 如下图：  
-	![PHP info](http://d.pr/i/10UGP+)     
+	![PHP info]()     
 
 ### 扩展篇  
 1. 安装 memcache 扩展  
@@ -636,7 +636,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	```  
 	  
 	在浏览器中输入 http://192.168.1.128/phpinfo.php 查看memcache扩展是否安装成功 如下图：  
-	![memcache success](http://d.pr/i/10UGP+)
+	![memcache success]()
 	
 	
 2. 安装 memcache 服务器  
