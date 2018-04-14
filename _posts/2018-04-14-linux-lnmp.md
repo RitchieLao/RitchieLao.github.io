@@ -98,7 +98,8 @@ tags: Linux CentOS LNMP Nginx PHP7
 	zlib-1.2.8.tar.gz　　boost\_1\_59\_0.tar.gz　　libpng-1.6.25.tar.gz  
 	t1lib-5.1.2.tar.gz　 mcrypt-2.6.8.tar.gz　　pecl-memcache-php7.zip  
 	mhash-0.9.9.9.tar.gz　libxml2-2.6.30.tar.gz　 libmcrypt-2.5.8.tar.gz  
-	openssl-1.0.2j.tar.gz  memcached-1.4.31.tar.gz  
+	openssl-1.0.2j.tar.gz　memcached-1.4.31.tar.gz  
+	  
 	  
 	**下载地址：**  
 	  
@@ -193,7 +194,8 @@ tags: Linux CentOS LNMP Nginx PHP7
 	 make && make install
 	
 	```  
-	 **注意：**openssl 、 zlib 、 pcre 扩展模块指向源码包的路径 
+	 **注意：**openssl 、 zlib 、 pcre 扩展模块指向源码包的路径  
+	  
 	  
 	1.4) 编辑 nginx 配置文件 nginx.conf  
 	  
