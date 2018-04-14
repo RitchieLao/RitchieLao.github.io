@@ -101,7 +101,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	mhash-0.9.9.9.tar.gz　libxml2-2.6.30.tar.gz　 libmcrypt-2.5.8.tar.gz  
 	openssl-1.0.2j.tar.gz　memcached-1.4.31.tar.gz  
 	    
-	**下载地址：**  
+	**下载地址：** 链接：https://pan.baidu.com/s/1lg-j6H2hC1jb-hV61Mk8HQ 密码：u458 
 	  
 6. 将源码包用 **WinSPC** 上传至指定目录，并解压  
 	6.1) 本次将所有的源码包传到 /lnmp 目录下 (可自定)  
@@ -322,7 +322,8 @@ tags: Linux CentOS LNMP Nginx PHP7
 	
 	  make && make install
 	  
-	```  
+	```
+	
 	**注意：**MySQL 5.7以上的版本，安装编译时间有点长，大约需要：40～60分钟左右  
 
 	2.4) ACL 目录授权，使 mysql 用户对/usr/local/mysql 目录拥有所有权限  
