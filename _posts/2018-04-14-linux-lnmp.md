@@ -19,8 +19,7 @@ tags: Linux CentOS LNMP Nginx PHP7
   
 1. 关闭 SELinux、iptables防火墙
 	  
-	```  
-	 <pre><code class="language-css">
+	```bash  
 	 # 关闭SELiunx
 	 vi /etc/selinux/config
 	 SELINUX=disabled
@@ -28,7 +27,6 @@ tags: Linux CentOS LNMP Nginx PHP7
 	 # iptables防火墙
 	 iptables -F # 清空防火墙
 	 service iptables save # 保存防火墙策略
-	 </code></pre>
 	 
 	```   
  
