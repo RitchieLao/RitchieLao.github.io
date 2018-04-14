@@ -20,11 +20,11 @@ tags: Linux CentOS LNMP Nginx PHP7
 1. 关闭 SELinux、iptables防火墙
 	  
 	```bash  
-	 # 关闭SELiunx
+	 # 关闭 SELiunx
 	 vi /etc/selinux/config
 	 SELINUX=disabled
 	
-	 # iptables防火墙
+	 # iptables 防火墙
 	 iptables -F # 清空防火墙
 	 service iptables save # 保存防火墙策略
 	 
@@ -32,7 +32,7 @@ tags: Linux CentOS LNMP Nginx PHP7
  
 2. 卸载系统自带的 Apache、MySQL、PHP
 
-	```
+	```bash
 	 # 卸载 Apache
 	 rpm -qa | grep httpd* # 查询 httpd
 	 httpd-manual-2.2.3-43.e15.centos
@@ -49,7 +49,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	3.1) 把虚拟机的网卡设置为“桥接模式”  
 	3.2) 修改 IP 地址、添加 DNS  
 	  
-	```
+	```bash
 	 # 修改 IP 地址  
 	 vi /etc/sysconfig/network-scripts/ifcfg-eth0 
 	 DEVICE=eth0
@@ -71,14 +71,14 @@ tags: Linux CentOS LNMP Nginx PHP7
 4. 用 yum 方式安装编译工具及 LNMMP 环境所需的依赖包  
 	4.1) 安装编译工具  
 	  
-	```
+	```bash
 	 yum install -y gcc gcc-c++ make unzip cmake prel wget
 	 
 	```
 	  
 	4.2) 安装所需的依赖包  
 	  
-	```
+	```bash
 	 yum install -y zlib-devel apr* autoconf automake bison bzip2 bzip2* \      
 	 cloog-ppl compat* cpp curl curl-devel fontconfig fontconfig-devel \  
 	 freetype freetype* freetype-devel gtk+-devel gd gettext \  
@@ -106,7 +106,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	6.1) 本次将所有的源码包传到 /lnmp 目录下 (可自定)  
 	6.2) 在 /lnmp 目录下编写批量解压文件脚本 "unpack.sh"，提高工作效率  
 	  
-	```
+	```bash
 	 vi unpack.sh
 	 #!/bin/bash
 	 # unpack.sh
@@ -131,7 +131,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	```  
 	6.3) 给 "unpack.sh" 执行权限，运行解压所有源码包  
 	  
-	```
+	```bash
 	 chmod a+x ./unpack.sh # 赋予执行权限 x
 	 ./unpack.sh # 运行脚本
 	
@@ -141,7 +141,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 1. 安装 Nginx  
 	1.1) 创建 nginx 用户及用户组   
 	 
-	```
+	```bash
 	 groupadd nginx # 创建 nginx 用户组  
 	 useradd -r -g nginx nginx # 创建 nginx 用户并加入 nginx 用户组
 	 
@@ -149,7 +149,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	
 	1.2) 安装依赖包   
 	 
-	```
+	```bash
 	 # 安装 pcre
 	 cd /lnmp/pcre-8.39
 	 
@@ -176,7 +176,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	 
 	1.3) 安装 Nginx  
 	  
-	```
+	```bash
 	 cd /lnmp/nginx-1.10.1
 	 
 	 ./configure \
@@ -197,7 +197,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	  
 	1.4) 编辑 nginx 配置文件 nginx.conf  
 	  
-	```  
+	```bash  
 	vi /usr/local/nginx/conf/nginx.conf  
 	
     # 修改nginx的执行用户与组为 'nginx'
@@ -243,20 +243,21 @@ tags: Linux CentOS LNMP Nginx PHP7
 	```   
 	1.5) 启动&测试   
 	  
-	```   
+	```bash   
 	　/usr/local/nginx/sbin/nginx # 启动 Nginx  
 	　  
 	　netstat -tunpl | grep :80 # 查看 Nginx 端口 
 	　 
 	　pstree | grep nginx # 查看 Nginx 服务进程 
 	　  
-	```
+	```  
+	
 	在浏览器中输入 http://192.168.1.128 成功如下图：  
 	![Nginx success](http://d.pr/i/10UGP+)   
 	 
 	1.6) 设置 Nginx 开机启动  
 	  
-	```  
+	```bash  
 	 # 编辑 /etc/rc.local 文件
 	 vi /etc/rc.local
 	 
@@ -268,7 +269,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 2. 安装 MySQL   
 	2.1) 创建用户、安装目录  
 	  
-	``` 
+	```bash 
 	 groupadd mysql # 创建 mysql 组
 	 useradd -r -g mysql mysql # 创建 mysql 用户
 	 
@@ -278,7 +279,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	```  
 	2.2) 安装依赖包  
 	  
-	``` 
+	```bash 
 	 # 安装 ncurses
 	 cd /lnmp/ncurses-5.9
 	 
@@ -293,7 +294,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	 
 	2.3) 安装 MySQL   
 	 
-	``` 
+	```bash 
 	 # 安装 mysql
 	 cd /lnmp/mysql-5.7.11
 	 
@@ -324,7 +325,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 
 	2.4) ACL 目录授权，使 mysql 用户对/usr/local/mysql 目录拥有所有权限  
 	  
-	```  
+	```bash  
 	 # 设置mysql用户对/usr/local/mysql目录有可读、可写、可执行权限  
 	 setfacl -m u:mysql:rwx -R /usr/local/mysql
 	 
@@ -335,7 +336,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	  
 	2.5) 生成 MySQL 配置文件 my.cnf  
 	  
-	```  
+	```bash  
 	 cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 	 
 	 # 修改 /etc/my.cnf 配置文件
@@ -349,7 +350,7 @@ tags: Linux CentOS LNMP Nginx PHP7
 	```  
 	2.6) 初始化 MySQL 数据库（不生成随机密码） 
 	  
-	```
+	```bash
 	 /usr/local/mysql/bin/mysqld --initialize-insecure --user=mysql --
 basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/ 
 
@@ -357,7 +358,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	    
 	2.7) 设置 MySQL 开机启动  
 	  
-	```
+	```bash
 	 # 在mysql的安装目录中找到mysql的启动脚本mysql.server，将其复制到
 	 # /etc/init.d 目录下，并改名为 mysqld
 	 cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
@@ -377,7 +378,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	  
 	2.8) 为 MySQL 管理员账户 root 密码   
 	  
-	```
+	```bash
 	 # 初次登录为空密码，回车可直接进入
 	 /usr/local/mysql/bin/mysql -uroot -p
 	
@@ -392,7 +393,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 3. 安装 PHP  
 	3.1) 安装依赖包  
 	  
-	```  
+	```bash  
 	 # 安装 libxml2
 	 cd /lnmp/libxml2-2.6.30
 	 
@@ -514,7 +515,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	 
 	3.2) 安装 PHP  
 	  
-	```  
+	```bash  
 	 cd /lnmp/php-7.0.11	
 
 	 yum -y install curl-devel libxslt-devel*
@@ -544,7 +545,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	  
 	3.3) 生成配置文件 
 	 
-	```
+	```bash
 	 # 生成php配置文件 php.ini
 	 cp /lnmp/php-7.0.11/php.ini-production /usr/local/php/etc/php.ini
 	
@@ -568,7 +569,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	  
 	3.4) 设置 PHP 开机启动  
 	  
-	```
+	```bash
 	 # 在php源码目录中找到php的启动脚本init.d.php-fpm，将其复制到
 	 # /etc/init.d 目录下，并改名为 php-fpm
 	 cp /lnmp/php-7.0.11/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
@@ -591,7 +592,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	```  
 	3.6) 测试 PHP 
 	 
-	```
+	```bash
 	 # 编写 PHP 文件 phpinfo.php  
 	 vi /usr/local/nginx/html/phpinfo.php
 	 <?php 
@@ -607,7 +608,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 1. 安装 memcache 扩展  
 	1.1) 安装  
 	  
-	```
+	```bash
 	 cd /lnmp/pecl-memcache-php
 	 /usr/local/php/bin/phpize # 生成 .configure 编译文件
 	
@@ -620,7 +621,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	
 	1.2) 修改PHP配置文件 php.ini  
 	  
-	```
+	```bash
 	 vi /usr/local/php/etc/php.ini
 	 
      # 在891行下面添加 memcache.so 
@@ -639,14 +640,14 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 2. 安装 memcache 服务器  
 	2.1) 创建memcache用户,用于执行memcached进程 
 	 
-	``` 
+	```bash 
 	 groupadd memcache # 创建memcache组
 	 useradd -r -g memcache memcache # 创建memcache用户
 	```  
 	
 	2.2) 安装 
 	 
-	```
+	```bash
 	 # 安装 libevent
 	 cd /lnmp/libevent-1.3
 	
@@ -673,7 +674,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	```  
 	2.3) 设置 memcache 开机启动 
 	 
-	```
+	```bash
 	 # 编辑 /etc/rc.local 文件
 	 vi /etc/rc.local
 	 
