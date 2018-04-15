@@ -2,7 +2,7 @@
 layout: post
 title: 'CentOS 6.8 搭建LNMP环境'
 subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 5.6.30'
-date: 2018-04-13
+date: 2018-04-14
 categories: Linux
 cover: ''
 tags: Linux CentOS LNMP Nginx PHP
@@ -101,7 +101,7 @@ tags: Linux CentOS LNMP Nginx PHP
 	mhash-0.9.9.9.tar.gz　libxml2-2.6.30.tar.gz　 libmcrypt-2.5.8.tar.gz  
 	openssl-1.0.2j.tar.gz　memcached-1.4.31.tar.gz  
 	    
-	**下载地址：** ![源码包下载 ->](https://pan.baidu.com/s/1lg-j6H2hC1jb-hV61Mk8HQ) 密码：u458 
+	**下载地址：** [源码包下载 ⬇️](https://pan.baidu.com/s/1lg-j6H2hC1jb-hV61Mk8HQ) 密码：u458 
 	  
 6. 将源码包用 **WinSPC** 上传至指定目录，并解压  
 	6.1) 本次将所有的源码包传到 /lnmp 目录下 (可自定)  
