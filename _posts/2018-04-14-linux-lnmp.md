@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 'CentOS 6.8 搭建LNMP环境'
-subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 7.0.11'
+subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 5.6.3'
 date: 2018-04-13
 categories: Linux
 cover: ''
-tags: Linux CentOS LNMP Nginx PHP7 
+tags: Linux CentOS LNMP Nginx PHP
 ---
 
 > LNMP 即：Linux、Nginx、MySQL和PHP的缩写，是当下最流行的WEB服务器架构之一。本文将带领你在CentOS 6.8系统下源码编译一套LNMP环境：    
@@ -95,13 +95,13 @@ tags: Linux CentOS LNMP Nginx PHP7
 	pcre-8.39.tar.gz　　 ncurses-5.9.tar.gz　　freetype-2.7.tar.gz  
 	tiff-4.0.6.tar.gz　　　jpegsrc.v9b.tar.gz　　libevent-1.3.tar.gz    
 	yasm-1.3.0.tar.gz　   libgd-2.2.0.tar.gz　　 nginx-1.10.0.tar.gz   
-	php-7.0.11.tar.gz　 memcache-3.0.8.tgz　mysql-5.7.11.tar.gz  
+	php-5.6.30.tar.gz　 memcache-3.0.8.tgz　mysql-5.7.11.tar.gz  
 	zlib-1.2.8.tar.gz　　boost\_1\_59\_0.tar.gz　　libpng-1.6.25.tar.gz  
 	t1lib-5.1.2.tar.gz　 mcrypt-2.6.8.tar.gz　　pecl-memcache-php7.zip  
 	mhash-0.9.9.9.tar.gz　libxml2-2.6.30.tar.gz　 libmcrypt-2.5.8.tar.gz  
 	openssl-1.0.2j.tar.gz　memcached-1.4.31.tar.gz  
 	    
-	**下载地址：** 链接：https://pan.baidu.com/s/1lg-j6H2hC1jb-hV61Mk8HQ 密码：u458 
+	**下载地址：** ![源码包下载 ->](https://pan.baidu.com/s/1lg-j6H2hC1jb-hV61Mk8HQ) 密码：u458 
 	  
 6. 将源码包用 **WinSPC** 上传至指定目录，并解压  
 	6.1) 本次将所有的源码包传到 /lnmp 目录下 (可自定)  
@@ -519,7 +519,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	3.2) 安装 PHP  
 	  
 	```bash  
-	 cd /lnmp/php-7.0.11	
+	 cd /lnmp/php-5.6.30	
 
 	 yum -y install curl-devel libxslt-devel*
 	
@@ -550,7 +550,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	 
 	```bash
 	 # 生成php配置文件 php.ini
-	 cp /lnmp/php-7.0.11/php.ini-production /usr/local/php/etc/php.ini
+	 cp /lnmp/php-5.6.30/php.ini-production /usr/local/php/etc/php.ini
 	
 	 # 生成 php-fpm.conf 配置文件
 	 cp /usr/local/php/etc/php-fpm.conf.default  /usr/local/php/etc/php-fpm.conf
@@ -575,7 +575,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	```bash
 	 # 在php源码目录中找到php的启动脚本init.d.php-fpm，将其复制到
 	 # /etc/init.d 目录下，并改名为 php-fpm
-	 cp /lnmp/php-7.0.11/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+	 cp /lnmp/php-5.6.30/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
 	
 	 # 给 php-fpm 执行权限
 	 chmod a+x /etc/init.d/php-fpm
