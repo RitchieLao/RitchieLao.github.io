@@ -613,7 +613,7 @@ basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/
 	1.1) 安装  
 	  
 	```bash
-	 cd /lnmp/pecl-memcache-php
+	 cd /lnmp/memcache-3.0.8
 	 /usr/local/php/bin/phpize # 生成 .configure 编译文件
 	
 	 ./configure --with-php-config=/usr/local/php/bin/php-config \
