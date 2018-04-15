@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'CentOS 6.8 搭建LNMP环境'
-subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 5.6.3'
+subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 5.6.30'
 date: 2018-04-13
 categories: Linux
 cover: ''
