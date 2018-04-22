@@ -25,7 +25,7 @@ tags: 操作系统
 
 	 cd /python/fisher # 进入目录
 
-	 # 创建 Python 环境，如不指定 python 的版本，
+	 # 创建 Python 解释器，如不指定 python 的版本，
 	 # 则会使用系统默认的 python 版本
 	 pipenv install
 	
