@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Linux下安装&配置 Redis'
+title: '[Redis] Linux下安装&配置 Redis'
 subtitle: ''
 date: 2018-04-21
 categories: linux

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 'CentOS 6.8 搭建LNMP环境'
+title: '[LNMP] CentOS 6.8 搭建LNMP环境'
 subtitle: 'CentOS 6.8 + Nginx 1.10.1 + MYSQL 5.7.11 + PHP 5.6.30'
 date: 2018-04-14
 categories: Linux
 cover: ''
-tags: LNMP
+tags: WEB服务器
 ---
 
 > LNMP 即：Linux、Nginx、MySQL和PHP的缩写，是当下最流行的WEB服务器架构之一。本文将带领你在CentOS 6.8系统下源码编译一套LNMP环境：    
