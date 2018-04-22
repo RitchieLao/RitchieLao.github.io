@@ -8,7 +8,7 @@ cover: ''
 tags: 操作系统
 ---
 
-> pyenv 是一个 Python 版本管理工具，它能够进行全局的 Python 版本切换，也可以为单个项目提供对应的 Python 版本。使用pyenv以后，可以在 Mac OS 上安装多个不同的 Python 版本。
+> pyenv 是一个 Python 版本管理工具，它能够进行全局的 Python 版本切换，也可以为单个项目提供对应的 Python 版本。使用 pyenv 以后，可以在 Mac OS 上安装多个不同的 Python 版本。
 
 1. 安装 pyenv  
 
