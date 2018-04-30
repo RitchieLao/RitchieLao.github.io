@@ -18,7 +18,7 @@ tags: Linux 数据库
 
 	 tar zxf redis-4.0.9.tar.gz
 
-	 cd redis-4.0.9.
+	 cd redis-4.0.9
 
 	 make # 编译  
 
