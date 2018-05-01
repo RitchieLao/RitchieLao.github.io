@@ -16,7 +16,7 @@ tags: Linux 数据库
 	 # 下载 Redis
 	 wget http://download.redis.io/releases/redis-4.0.9.tar.gz
 
-	 tar zxf redis-4.0.9.tar.gz
+	 tar zxf redis-4.0.9.tar.gz # 解压
 
 	 cd redis-4.0.9
 
