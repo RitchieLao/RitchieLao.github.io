@@ -78,7 +78,7 @@ tags: Linux 数据库
 
 	 :x # 保存退出
 
-	 soucre /etc/profile # 重载 profile
+	 source /etc/profile # 重载 profile
 
 	```
 
