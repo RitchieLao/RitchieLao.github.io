@@ -228,7 +228,7 @@ tags: Docker WEB服务器
 
 9. PHP 测试
 
-	```
+	```bash
 	 # 编写 phpinfo 测试页
 	 vi /usr/share/nginx/html/phpinfo.php
 
@@ -237,6 +237,15 @@ tags: Docker WEB服务器
 	 phpinfo();
 	
 	 :x # 保存退出
+	 
+	 # curl 测试
+	 [root@544c33840c4e html]# curl -I http://127.0.0.1/info.php
+	 HTTP/1.1 200 OK
+	 Server: nginx/1.14.0
+	 Date: Tue, 03 Jul 2018 09:24:50 GMT
+	 Content-Type: text/html; charset=UTF-8
+	 Connection: keep-alive
+	 X-Powered-By: PHP/7.1.18
 
 	``` 
 
