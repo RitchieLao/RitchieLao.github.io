@@ -231,6 +231,7 @@ tags: Docker WEB服务器
 	```
 	 # 编写 phpinfo 测试页
 	 vi /usr/share/nginx/html/phpinfo.php
+
 	 <?php
 	
 	 phpinfo();
