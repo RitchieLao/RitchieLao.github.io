@@ -200,7 +200,7 @@ tags: Docker WEB服务器
 	 ps -ef | grep php-fpm
 	
 	```  
-	
+
 7. 退出容器，将容器保存为docker镜像  
 
 	```bash
@@ -219,7 +219,7 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 	 
 
 	``` 
-	
+
 8. 运行测试  
 
 	```bash
@@ -232,7 +232,7 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 	 
 
 	``` 
-	
+
 9. php测试
 
 	```
@@ -254,7 +254,7 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
  	  X-Powered-By: PHP/7.1.18
 
 	``` 
-	
+
 10. 总结  
 	至此，基于Docker容器的LNMP开发环境已经搭建完毕，我们可以把这个镜像发布到Docker Hub上去。以后，再也不用担心开发环境啦！～！
 
