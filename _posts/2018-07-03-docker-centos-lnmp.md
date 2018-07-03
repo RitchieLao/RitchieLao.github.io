@@ -237,15 +237,6 @@ tags: Docker WEB服务器
 	 phpinfo();
 	
 	 :x # 保存退出
-	 
-	 # curl 测试
-	 curl -I http://127.0.0.1/info.php
-	 HTTP/1.1 200 OK
-	 Server: nginx/1.14.0
-	 Date: Tue, 03 Jul 2018 09:24:50 GMT
-	 Content-Type: text/html; charset=UTF-8
-	 Connection: keep-alive
-	 X-Powered-By: PHP/7.1.18
 
 	``` 
 
