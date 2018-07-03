@@ -140,64 +140,64 @@ tags: Docker WEB服务器
 
 6. 配置 PHP、Nginx  
 
-	```bash
-	 # 编辑 www.conf 文件
-	 vi /etc/php-fpm.d/www.conf
+	```bash  
+	 # 编辑 www.conf 文件  
+	 vi /etc/php-fpm.d/www.conf  
 	
-	 # 将执行 php-fpm 的用户和组都改为 nginx 
-	 user = nginx
-	 group = nginx
+	 # 将执行 php-fpm 的用户和组都改为 nginx   
+	 user = nginx  
+	 group = nginx  
 	
-	 :x # 保存退出
+	 :x # 保存退出  
 	
-	 # 编辑 fastcgi_params 文件
-  	 vi /etc/nginx/fastcgi_params
+	 # 编辑 fastcgi_params 文件  
+  	 vi /etc/nginx/fastcgi_params  
   	
-	 # 在第6行下添加以下这行
-	 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	 # 在第6行下添加以下这行  
+	 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
 	
-	 :x # 保存退出
+	 :x # 保存退出  
 	
-	 # 创建虚拟主机的配置文件存放目录
-	 mkdir /etc/nginx/vhost.d
+	 # 创建虚拟主机的配置文件存放目录  
+	 mkdir /etc/nginx/vhost.d  
 	
-	 # 编辑 nginx.conf 文件 
-  	 vi /etc/nginx/nginx.conf
+	 # 编辑 nginx.conf 文件   
+  	 vi /etc/nginx/nginx.conf  
   	
-  	 # 在 http 模块末尾添加以下这行
-  	 include /etc/nginx/vhost.d/*.conf;
+  	 # 在 http 模块末尾添加以下这行  
+  	 include /etc/nginx/vhost.d/*.conf;  
   	
-  	 :x # 保存退出
+  	 :x # 保存退出  
   	
-  	 # 编辑 default.conf 文件
-  	 vi /etc/nginx/conf.d/default.conf
+  	 # 编辑 default.conf 文件  
+  	 vi /etc/nginx/conf.d/default.conf  
   	
-  	 server {
-    	 listen       80;
-    	 server_name  localhost;
+  	 server {  
+    	 listen       80;  
+    	 server_name  localhost;  
 
-        root   /usr/share/nginx/html;
-    	 index  index.html index.htm index.php; # 添加php文件索引
+        root   /usr/share/nginx/html;  
+    	 index  index.html index.htm index.php; # 添加php文件索引  
     	
-    	 # php文件解析
-    	 location ~ \.php$ {
-       	 fastcgi_pass   127.0.0.1:9000;
-      		 fastcgi_index  index.php;
-        	 include        fastcgi_params;
-    	 }
-     }
+    	 # php文件解析  
+    	 location ~ \.php$ {  
+       	 fastcgi_pass   127.0.0.1:9000;  
+      		 fastcgi_index  index.php;  
+        	 include        fastcgi_params;  
+    	 }  
+     }  
     
-     # 重载 nginx 配置文件
-     nginx -s reload -c /etc/nginx/nginx.conf
+     # 重载 nginx 配置文件  
+     nginx -s reload -c /etc/nginx/nginx.conf  
   	
-	 # 启动 php-fpm
-	 service php-fpm start
+	 # 启动 php-fpm  
+	 service php-fpm start  
 	
-	 # 设置 php-fpm 开机启动
-	 systemctl enable php-fpm
+	 # 设置 php-fpm 开机启动  
+	 systemctl enable php-fpm  
 	 
-	 # 查看 php-fpm 进程
-	 ps -ef | grep php-fpm
+	 # 查看 php-fpm 进程  
+	 ps -ef | grep php-fpm  
 	
 	```  
 
