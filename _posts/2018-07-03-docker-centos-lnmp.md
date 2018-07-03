@@ -239,12 +239,12 @@ tags: Docker WEB服务器
 	 
 	 # curl测试
 	 [root@544c33840c4e html]# curl -I http://127.0.0.1/info.php
-	  HTTP/1.1 200 OK
-	  Server: nginx/1.14.0
-	  Date: Tue, 03 Jul 2018 09:24:50 GMT
-	  Content-Type: text/html; charset=UTF-8
-	  Connection: keep-alive
-	  X-Powered-By: PHP/7.1.18
+	 HTTP/1.1 200 OK
+	 Server: nginx/1.14.0
+	 Date: Tue, 03 Jul 2018 09:24:50 GMT
+	 Content-Type: text/html; charset=UTF-8
+	 Connection: keep-alive
+	 X-Powered-By: PHP/7.1.18
 
 	``` 
 
