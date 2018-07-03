@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '基于Docker搭建LNMP开发环境'
-subtitle: ''
+subtitle: 'LNMP：CentOS 7.2 + NGINX 1.14 + MySQL 5.7 + PHP 7.1'
 date: 2018-07-03
 categories: Docker
 cover: ''
@@ -10,22 +10,17 @@ tags: Docker WEB服务器
 
 > Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上。本次，将带着大家在Docker上，快速部署一套PHP开发环境 -- LNMP。
 
-1. 开启已有的CentOS镜像，如果本地还没有CentOS镜像，请从docker hub上拉取。  
+1. 运行 CentOS  
 	
 	```bash 
-	 # 运行本地的centos镜像
+	 # 运行本地 centos 镜像
 	 docker run --privileged -d --name=mac-to-centos -p 1022:22 centos-ssh:7.2 /usr/sbin/init /usr/sbin/sshd -D
 	
 	 ssh root@192.168.1.100 -p 1022 # 登录容器 
 	
-	 # 如果本地还没有centos镜像，请自行拉取镜像 
-	 docker pull centos:7.2.1511 
-	
-	 # 启动并进入 centos
-	 docker run -it centos:7.2.1511 /bin/bash
 
 	```
-	
+
 2. 安装 Nginx 
 
 	```bash  
@@ -118,8 +113,8 @@ tags: Docker WEB服务器
 	  # 设置 MySQL 开机启动
 	  systemctl enable mysqld
 
-	```  
-	
+	```  	
+
 5. 安装 PHP   
 
 	```bash
@@ -140,64 +135,63 @@ tags: Docker WEB服务器
 
 6. 配置 PHP、Nginx  
 
-	```bash  
-	 # 编辑 www.conf 文件  
-	 vi /etc/php-fpm.d/www.conf  
+	```bash
+	 # 编辑 www.conf 文件
+	 vi /etc/php-fpm.d/www.conf
 	
-	 # 将执行 php-fpm 的用户和组都改为 nginx   
-	 user = nginx  
-	 group = nginx  
+	 # 将执行 php-fpm 的用户和组都改为 nginx 
+	 user = nginx
+	 group = nginx
 	
-	 :x # 保存退出  
+	 :x # 保存退出
 	
-	 # 编辑 fastcgi_params 文件  
-  	 vi /etc/nginx/fastcgi_params  
+	 # 编辑 fastcgi_params 文件
+	 vi /etc/nginx/fastcgi_params
   	
-	 # 在第6行下添加以下这行  
-	 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+	 # 在第6行下添加以下这行
+	 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 	
-	 :x # 保存退出  
+	 :x # 保存退出
 	
-	 # 创建虚拟主机的配置文件存放目录  
-	 mkdir /etc/nginx/vhost.d  
+	 # 创建虚拟主机的配置文件存放目录
+	 mkdir /etc/nginx/vhost.d
 	
-	 # 编辑 nginx.conf 文件   
-  	 vi /etc/nginx/nginx.conf  
-  	
-  	 # 在 http 模块末尾添加以下这行  
-  	 include /etc/nginx/vhost.d/*.conf;  
-  	
-  	 :x # 保存退出  
-  	
-  	 # 编辑 default.conf 文件  
-  	 vi /etc/nginx/conf.d/default.conf  
-  	
-  	 server {  
-    	 listen       80;  
-    	 server_name  localhost;  
+	 # 编辑 nginx.conf 文件
+	 vi /etc/nginx/nginx.conf
 
-        root   /usr/share/nginx/html;  
-    	 index  index.html index.htm index.php; # 添加php文件索引  
+	 # 在 http 模块末尾添加以下这行
+	 include /etc/nginx/vhost.d/*.conf;
+	 :x # 保存退出
+
+	 # 编辑 default.conf 文件
+	 vi /etc/nginx/conf.d/default.conf
+
+	 server {
+    	listen       80;
+    	server_name  localhost;
+
+        root   /usr/share/nginx/html;
+    	index  index.html index.htm index.php; # 添加php文件索引
     	
-    	 # php文件解析  
-    	 location ~ \.php$ {  
-       	 fastcgi_pass   127.0.0.1:9000;  
-      		 fastcgi_index  index.php;  
-        	 include        fastcgi_params;  
-    	 }  
-     }  
+    	# php文件解析
+    	location ~ \.php$ {
+       		fastcgi_pass   127.0.0.1:9000;
+      		fastcgi_index  index.php;
+        	include        fastcgi_params;
+    	}
+     }
     
-     # 重载 nginx 配置文件  
-     nginx -s reload -c /etc/nginx/nginx.conf  
+     # 重载 nginx 配置文件
+     nginx -s reload -c /etc/nginx/nginx.conf
   	
-	 # 启动 php-fpm  
-	 service php-fpm start  
+	 # 启动 php-fpm
+	 service php-fpm start
 	
-	 # 设置 php-fpm 开机启动  
-	 systemctl enable php-fpm  
+	 # 设置 php-fpm 开机启动
+	 systemctl enable php-fpm
 	 
-	 # 查看 php-fpm 进程  
-	 ps -ef | grep php-fpm  
+	 # 查看 php-fpm 进程
+	 ps -ef | grep php-fpm
 	
 	```  
 
@@ -208,8 +202,8 @@ tags: Docker WEB服务器
 	 
 	 # 查看所有容器的信息
 	 docker ps -a
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
-747dc410f927        centos-nginx-mysql   "/usr/sbin/init /usr…"   2 hours ago         Up 2 hours          0.0.0.0:1022->22/tcp   mac-to-centos
+	 CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
+	 747dc410f927        centos-nginx-mysql   "/usr/sbin/init /usr…"   2 hours ago         Up 2 hours          0.0.0.0:1022->22/tcp   mac-to-centos
 	 
 	 # 将容器保存为镜像
 	 docker commit 747dc410f927 lnmp:v1
@@ -224,10 +218,9 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 
 	```bash
 	 # 启动刚才保存的镜像 lnmp:v1
-	 # 注意：如果你没有配置ssh，请去掉 /usr/sbin/sshd -D
 	 docker run --privileged -d --name=lnmp-dev -p 1022:22 -p 8080:80 -v $PWD/nginx/conf:/etc/nginx/vhost.d -v $PWD/nginx/html:/opt/nginx/html -p 3306:3306 -v $PWD/data/mysql:/opt/mysql/data lnmp:v1 /usr/sbin/init /usr/sbin/sshd -D
 	 
-	 # 登录容器，没有配置ssh的，可省略
+	 # 登录容器
 	 ssh root@host-ip -p 1022
 	 
 
@@ -251,7 +244,7 @@ CONTAINER ID        IMAGE                        COMMAND                  CREATE
 	  Date: Tue, 03 Jul 2018 09:24:50 GMT
 	  Content-Type: text/html; charset=UTF-8
 	  Connection: keep-alive
- 	  X-Powered-By: PHP/7.1.18
+	  X-Powered-By: PHP/7.1.18
 
 	``` 
 
